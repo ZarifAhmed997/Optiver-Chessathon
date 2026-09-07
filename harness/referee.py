@@ -119,6 +119,7 @@ def _adjudicate(board: chess.Board) -> Decision:
 
 def _outcome(board: chess.Board, result: Result, termination: str) -> Outcome:
     game = chess.pgn.Game.from_board(board)
+    print(str(game))
     game.headers["Result"] = RESULT_HEADERS[result]
     game.headers["Termination"] = termination
     return Outcome(result=result, termination=termination, pgn=str(game))
